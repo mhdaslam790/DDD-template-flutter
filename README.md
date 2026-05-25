@@ -3,6 +3,10 @@
 This repoitory follows Data Driven Design Strcuture.
 In this structure, all the code is divided into four layers each being independent of each other.
 
+> [!WARNING]
+> **Firebase Configuration Required**
+> This template relies on Firebase for Authentication(Optional) and Crashlytics. Before running the app, you **must** configure Firebase for your project using the FlutterFire CLI (`flutterfire configure`), even if you only intend to use Crashlytics.
+
 - Application
 - Domain
 - Infrastructure
@@ -30,6 +34,27 @@ then we need to touch only this layer.
 This layer contains all the screen i.e. UI/UX part will be there and will remain in contact with application layer only.
 
 - [For more info on DDD](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U)
+
+## 🧱 Feature Generator CLI (Mason)
+
+This template includes a built-in code generator using [Mason](https://pub.dev/packages/mason_cli) to instantly scaffold all 4 DDD layers for any new feature.
+
+**1. Initial Setup**
+Install Mason globally and download the project bricks:
+```bash
+dart pub global activate mason_cli
+mason get
+```
+
+**2. Generate a Feature**
+To generate a new feature (e.g., `cart` or `profile`), run:
+```bash
+mason make ddd_feature --name your_feature_name
+```
+This instantly creates the Domain facade, Failure unions, Infrastructure facade, Application BLoC/Event/State, and Presentation Page perfectly wired together.
+
+**3. Provide the BLoC**
+Open `lib/presentation/core/app_widget.dart` and add your new BLoC to the `MultiBlocProvider` array. Finally, run `dart run build_runner build -d` to generate the Freezed files.
 
 ## Visualization of this repo
 
