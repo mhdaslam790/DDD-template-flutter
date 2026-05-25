@@ -1,0 +1,116 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    - sort_pub_dependencies
+
+analyzer:
+  plugins:
+    - dart_code_metrics
+  exclude:
+    - "build/**"
+    - "lib/injection.config.dart"
+    - "**/*.g.dart"
+    - "**/*.gen.dart"
+    - "**/*.gr.dart"
+    - "**/*.freezed.dart"
+  errors:
+    missing_return: error
+    invalid_annotation_target: ignore
+
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    cyclomatic-complexity: 20
+    maximum-nesting-level: 5
+    number-of-parameters: 4
+    # source-lines-of-code: 50
+    technical-debt:
+  metrics-exclude:
+    - test/**
+
+  rules:
+    # Existing rules
+    - sort_pub_dependencies
+    
+    # Const performance rules
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    
+    # Performance-critical rules
+    - avoid_slow_async_io
+    - avoid_print
+    - avoid_unnecessary_containers
+    - sized_box_for_whitespace
+    - use_key_in_widget_constructors
+    - avoid_function_literals_in_foreach_calls
+    - prefer_foreach
+    - prefer_for_elements_to_map_fromIterable
+    - prefer_if_elements_to_conditional_expressions
+    - prefer_inlined_adds
+    - prefer_spread_collections
+    
+    # Code quality rules that impact performance
+    - avoid_renaming_method_parameters
+    - avoid_returning_null_for_void
+    - avoid_types_as_parameter_names
+    - cancel_subscriptions
+    - close_sinks
+    - no_duplicate_case_values
+    - unnecessary_null_in_if_null_operators
+    - unnecessary_overrides
+    - unnecessary_statements
+    - use_build_context_synchronously
+    
+    # Best practices
+    - always_declare_return_types
+    - annotate_overrides
+    - avoid_empty_else
+    - avoid_init_to_null
+    - avoid_null_checks_in_equality_operators
+    - avoid_relative_lib_imports
+    - avoid_return_types_on_setters
+    - avoid_shadowing_type_parameters
+    - avoid_types_on_closure_parameters
+    - await_only_futures
+    - camel_case_extensions
+    - camel_case_types
+    - curly_braces_in_flow_control_structures
+    - empty_catches
+    - empty_constructor_bodies
+    - library_names
+    - library_prefixes
+    - null_closures
+    - prefer_adjacent_string_concatenation
+    - prefer_collection_literals
+    - prefer_conditional_assignment
+    - prefer_contains
+    - prefer_equal_for_default_values
+    - prefer_final_fields
+    - prefer_final_locals
+    - prefer_is_empty
+    - prefer_is_not_empty
+    - prefer_iterable_whereType
+    - prefer_single_quotes
+    - prefer_typing_uninitialized_variables
+    - recursive_getters
+    - slash_for_doc_comments
+    - type_init_formals
+    - unawaited_futures
+    - unnecessary_brace_in_string_interps
+    - unnecessary_const
+    - unnecessary_getters_setters
+    - unnecessary_new
+    - unnecessary_null_aware_assignments
+    - unnecessary_string_escapes
+    - unnecessary_string_interpolations
+    - unnecessary_this
+    - unrelated_type_equality_checks
+    - use_function_type_syntax_for_parameters
+    - use_rethrow_when_possible
+    - valid_regexps
+
