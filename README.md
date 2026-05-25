@@ -8,7 +8,7 @@ In this structure, all the code is divided into four layers each being independe
 - Infrastructure
 - Presentation
 
-![alt text](ss/ddd.svg)
+![DDD Architecture](assets/flutter_bloc_architecture.svg)
 
 ### Application
 
