@@ -1,0 +1,11 @@
+name: ddd_feature
+description: A brick to generate the Domain, Infrastructure, Application, and Presentation layers for a new DDD feature in Flutter.
+version: 0.1.0+1
+environment:
+  mason: ">=0.1.0-dev.26 <1.0.0"
+vars:
+  name:
+    type: string
+    description: The name of the feature (e.g. auth, profile, settings). Will be formatted automatically.
+    default: feature
+    prompt: What is the feature name?

@@ -9,6 +9,7 @@ analyzer:
     - dart_code_metrics
   exclude:
     - "build/**"
+    - "bricks/**"
     - "lib/injection.config.dart"
     - "**/*.g.dart"
     - "**/*.gen.dart"
