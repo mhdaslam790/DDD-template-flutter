@@ -65,8 +65,30 @@ Open `lib/presentation/core/app_widget.dart` and add your new BLoC to the `Multi
 ### Outer Structure
 
 ```code
-
+├── android/              # Android-specific build files
+├── assets/               # Local assets (fonts, images, icons)
+├── bricks/               # Mason generator templates for DDD features
+├── ios/                  # iOS-specific build files
+├── lib/                  # Main Dart code (The 4 DDD Layers)
+│   ├── application/      # BLoCs, States, Events
+│   ├── domain/           # Facades, Entities, Value Objects, Failures
+│   ├── infrastructure/   # Data transfer objects, Repositories, APIs
+│   ├── presentation/     # UI Pages, Widgets, AppRouter
+│   └── injection.dart    # Dependency Injection setup
+├── test/                 # Unit and Widget tests
+├── .env                  # Environment variables
+├── mason.yaml            # Mason CLI configuration
+└── pubspec.yaml          # Flutter dependencies
 ```
+
+**What goes where?**
+- **`bricks/`**: Contains the Mason templates (like `ddd_feature`) used by the CLI to instantly generate boilerplate code.
+- **`lib/`**: The core of the app, strictly separated into four layers based on Domain-Driven Design:
+  - **`application/`**: Contains BLoCs (Business Logic Components). This layer listens to the UI, executes use cases from the Domain layer, and emits states back to the UI.
+  - **`domain/`**: The pure, independent heart of the app. It contains abstract interfaces (`facades`), `Value Objects` (which ensure invalid state is unrepresentable), and typed functional errors (`Failures`). No Flutter or 3rd-party dependencies live here.
+  - **`infrastructure/`**: The dirty work. This layer implements the Domain's interfaces and talks to the outside world (APIs, Firebase, local databases). It converts raw JSON into clean Domain entities.
+  - **`presentation/`**: The "dumb" UI layer. It only knows how to render states emitted by the Application layer and dispatch events based on user input. It never makes API calls directly.
+- **`injection.dart`**: The entry point for dependency injection (using `get_it` and `injectable`), allowing the app to tie concrete Infrastructure implementations to abstract Domain interfaces.
 
 ### Priciples followed:
 
@@ -86,7 +108,7 @@ Open `lib/presentation/core/app_widget.dart` and add your new BLoC to the `Multi
 
 ## todo
 
-- Add dark mode support
+- [Y] Add dark mode support
 - Add crash logging support
   - sentry
   - firebase crashlytics
@@ -98,7 +120,7 @@ Open `lib/presentation/core/app_widget.dart` and add your new BLoC to the `Multi
   - VS appcenter
 - add vscode launch configuration for all environments flutter run --dart-define=ENVIRONMENT=STAGING
 - [Y] Add localization suport
-- Add validator support
+- [Y] Add validator support
 - [WIP] Add testing
 - Add dio client
 - Add local notification support (awsome notifications package)
