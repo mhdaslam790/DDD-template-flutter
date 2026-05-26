@@ -12,6 +12,8 @@ import 'package:cloud_firestore/cloud_firestore.dart' as _i974;
 import 'package:cloud_functions/cloud_functions.dart' as _i809;
 import 'package:firebase_auth/firebase_auth.dart' as _i59;
 import 'package:flutter_template/application/auth/auth_bloc.dart' as _i673;
+import 'package:flutter_template/application/auth/sign_in_form/sign_in_form_bloc.dart'
+    as _i147;
 import 'package:flutter_template/application/settings/settings_bloc.dart'
     as _i1057;
 import 'package:flutter_template/domain/auth/i_auth_facade.dart' as _i957;
@@ -79,6 +81,10 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i683.DeleteAccount>(),
           gh<_i214.UpdateEmail>(),
           gh<_i47.ResetPassword>(),
+        ));
+    gh.factory<_i147.SignInFormBloc>(() => _i147.SignInFormBloc(
+          gh<_i5.SignInWithEmailPassword>(),
+          gh<_i329.RegisterWithEmailPassword>(),
         ));
     return this;
   }
