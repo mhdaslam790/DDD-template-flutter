@@ -35,4 +35,5 @@
   "dart.renameFilesWithClasses": "prompt",
   "dart.flutterHotReloadOnSave": "allIfDirty",
   "dart_data_class_generator.useEquatable": true,
+  "java.configuration.updateBuildConfiguration": "interactive",
 }

@@ -2,19 +2,19 @@ import 'package:file_picker/file_picker.dart';
 
 class FilePickerService {
   static Future<String?> pickPdfFile() async {
-    final FilePickerResult? result = await FilePicker.pickFiles(
+    final PlatformFile? result = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: ['pdf'],
     );
 
-    return result?.files.single.path;
+    return result?.path;
   }
 
   static Future<String?> pickImageFromGallery() async {
-    final FilePickerResult? result = await FilePicker.pickFiles(
+    final PlatformFile? result = await FilePicker.pickFile(
       type: FileType.image,
     );
 
-    return result?.files.single.path;
+    return result?.path;
   }
 }

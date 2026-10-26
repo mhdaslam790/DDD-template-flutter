@@ -1,7 +1,7 @@
 class AppConstants {
   static const String appName = "App-Name-Here";
   static const String playStoreLink = "";
-  static const String mailTo = "skilite007@gmail.com";
+  static const String mailTo = "test@gmail.com";
   static const String mailSubject = "This is the subject";
   static const String mailBody = "This is the mail body";
   static const String inviteText =

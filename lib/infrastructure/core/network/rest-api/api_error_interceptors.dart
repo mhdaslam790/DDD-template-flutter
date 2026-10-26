@@ -32,6 +32,9 @@ class AppInterceptors extends Interceptor {
       case DioExceptionType.connectionError:
         // TODO: Handle this case.
         break;
+      case DioExceptionType.transformTimeout:
+        // TODO: Handle this case.
+        throw UnimplementedError();
     }
 
     return handler.next(err);
